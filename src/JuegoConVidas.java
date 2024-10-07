@@ -2,11 +2,11 @@
  * Clase para gestionar las vidas y el registro de récords en el juego "JuegoConVidas".
  * Esta clase proporciona métodos para manejar el estado del juego, incluyendo el conteo de vidas y el seguimiento del récord más alto.
  */
-public class JuegoConVidas {
+abstract class JuegoConVidas {
 
     private int vidas;
     private int vidas_iniciales;
-    private static int record = 0;
+    private int record = 0;
 
     /**
      * Construye un nuevo juego con un número especificado de vidas iniciales.
@@ -17,17 +17,11 @@ public class JuegoConVidas {
         this.vidas = numeroVidasIniciales;
     }
 
-    /**
-     * Muestra el número inicial de vidas para este juego.
-     */
-    public void muestraVidasIniciales() {
-        System.out.println("Vidas iniciales: " + this.vidas_iniciales);
-    }
 
     /**
      * Muestra el número de vidas restantes para el jugador.
      */
-    public void muestraVidasRestantes() {
+    private void muestraVidasRestantes() {
         System.out.println("Vidas restantes: " + this.vidas);
     }
 
@@ -39,7 +33,7 @@ public class JuegoConVidas {
     public boolean quitaVida() {
         this.vidas--;
         if (this.vidas > 0) {
-            System.out.println("Vidas restantes: " + this.vidas);
+            muestraVidasRestantes();
             return true;
         }
         System.out.println("Juego Terminado");
@@ -65,4 +59,6 @@ public class JuegoConVidas {
             System.out.println("Record de vidas batido, el nuevo record es: " + this.vidas);
         }
     }
+
+    public abstract boolean juega(String intento);
 }
