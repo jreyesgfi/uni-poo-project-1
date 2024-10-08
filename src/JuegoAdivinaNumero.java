@@ -33,7 +33,6 @@ public class JuegoAdivinaNumero extends JuegoConVidas{
             return true;
         }
 
-
         // Comprobamos si ha ganado
         if (intentoInt == _numeroAdivinar) {
             System.out.println("Acertaste!!");
