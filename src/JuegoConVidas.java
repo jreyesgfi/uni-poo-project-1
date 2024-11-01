@@ -60,5 +60,5 @@ abstract class JuegoConVidas {
         }
     }
 
-    public abstract boolean juega(String intento);
+    //public abstract boolean juega(String intento);
 }
