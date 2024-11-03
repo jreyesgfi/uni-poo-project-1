@@ -3,16 +3,7 @@ import Entrada.MyInput;
 
 public class Main {
     public static void main(String[] args) {
-        // Parámetros del juego
-        int vidas = 0;
-        int numeroAdivinar = 3;
-        int numeroAdivinarPar = 8;
-        int numeroAdivinarImpar = 5;
 
-        // Creamos los juegos
-        Jugable juegoAdivinaNumero = new JuegoAdivinaNumero(vidas, numeroAdivinar);
-        Jugable juegoAdivinaNumeroPar = new JuegoAdivinaNumeroPar(vidas, numeroAdivinarPar);
-        Jugable juegoAdivinaNumeroImpar = new JuegoAdivinaNumeroImpar(vidas, numeroAdivinarImpar);
 
         // Jugamos
         jugar(juegoAdivinaNumero);
