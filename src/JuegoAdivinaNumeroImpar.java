@@ -20,4 +20,17 @@ public class JuegoAdivinaNumeroImpar extends JuegoAdivinaNumero{
 
         return true;
     }
+
+
+    public void muestraNombre(){
+        System.out.println("Adivina un número impar");
+    }
+
+    public void muestraInfo() {
+        String info = String.format(
+                "En este juego debes adivinar el número oculto proponiendo números impares del 1 al 9. Dispondrás de %d intentos. Cada vez que falles, se te indicará si el número buscado es mayor o menor que el que propusiste.",
+                getVidasIniciales()
+        );
+        System.out.println(info);
+    }
 }

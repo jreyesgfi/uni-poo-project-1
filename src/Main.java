@@ -10,9 +10,9 @@ public class Main {
         int numeroAdivinarImpar = 5;
 
         // Creamos los juegos
-        JuegoAdivinaNumero juegoAdivinaNumero = new JuegoAdivinaNumero(vidas, numeroAdivinar);
-        JuegoAdivinaNumeroPar juegoAdivinaNumeroPar = new JuegoAdivinaNumeroPar(vidas, numeroAdivinarPar);
-        JuegoAdivinaNumeroImpar juegoAdivinaNumeroImpar = new JuegoAdivinaNumeroImpar(vidas, numeroAdivinarImpar);
+        Jugable juegoAdivinaNumero = new JuegoAdivinaNumero(vidas, numeroAdivinar);
+        Jugable juegoAdivinaNumeroPar = new JuegoAdivinaNumeroPar(vidas, numeroAdivinarPar);
+        Jugable juegoAdivinaNumeroImpar = new JuegoAdivinaNumeroImpar(vidas, numeroAdivinarImpar);
 
         // Jugamos
         jugar(juegoAdivinaNumero);
@@ -20,9 +20,16 @@ public class Main {
         jugar(juegoAdivinaNumeroImpar);
 
     }
-    static void jugar(JuegoConVidas juego){
+    static void jugar(Jugable juego){
+        // Mostramos información inicial
+        juego.muestraNombre();
+        juego.muestraInfo();
+
+        // Reiniciamos las variables del juego
         juego.reiniciaPartida();
         boolean jugando = true;
+
+        // Jugamos
         while (jugando){
             String intento = MyInput.readString();
             jugando = juego.juega(intento);

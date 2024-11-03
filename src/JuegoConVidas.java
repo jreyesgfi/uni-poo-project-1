@@ -26,6 +26,13 @@ abstract class JuegoConVidas {
     }
 
     /**
+     * Devuelve el número de vidas iniciales del jugador.
+     */
+    public int getVidasIniciales(){
+        return this.vidas_iniciales;
+    }
+
+    /**
      * Decrementa el número de vidas en uno. Imprime las vidas actuales restantes si las hay,
      * de lo contrario imprime "Juego Terminado".
      * @return true si aún quedan vidas, false de lo contrario.

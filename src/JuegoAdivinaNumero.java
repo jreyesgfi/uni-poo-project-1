@@ -1,4 +1,4 @@
-public class JuegoAdivinaNumero extends JuegoConVidas{
+public class JuegoAdivinaNumero extends JuegoConVidas implements Jugable{
     private int _numeroAdivinar;
 
     public JuegoAdivinaNumero(int numeroVidasIniciales, int numeroAdivinar) {
@@ -19,7 +19,6 @@ public class JuegoAdivinaNumero extends JuegoConVidas{
 
 
     public boolean juega(String intento) {
-
         // Comprobamos el formato del input
         int intentoInt;
         try {
@@ -47,5 +46,16 @@ public class JuegoAdivinaNumero extends JuegoConVidas{
         return super.quitaVida();
     }
 
+    public void muestraNombre(){
+        System.out.println("Adivina un número");
+    }
+
+    public void muestraInfo() {
+        String info = String.format(
+                "En este juego debes adivinar el número oculto proponiendo números del 1 al 10. Dispondrás de %d intentos. Cada vez que falles, se te indicará si el número buscado es mayor o menor que el que propusiste.",
+                getVidasIniciales()
+        );
+        System.out.println(info);
+    }
 
 }

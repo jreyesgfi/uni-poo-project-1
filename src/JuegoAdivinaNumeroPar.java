@@ -20,4 +20,18 @@ public class JuegoAdivinaNumeroPar extends JuegoAdivinaNumero{
 
          return true;
      }
+
+     @Override
+     public void muestraNombre(){
+         System.out.println("Adivina un número par");
+     }
+
+     @Override
+    public void muestraInfo() {
+        String info = String.format(
+                "En este juego debes adivinar el número oculto proponiendo números pares del 2 al 10. Dispondrás de %d intentos. Cada vez que falles, se te indicará si el número buscado es mayor o menor que el que propusiste.",
+                getVidasIniciales()
+        );
+        System.out.println(info);
+    }
 }
