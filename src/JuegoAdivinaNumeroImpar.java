@@ -1,7 +1,7 @@
 public class JuegoAdivinaNumeroImpar extends JuegoAdivinaNumero{
 
-    JuegoAdivinaNumeroImpar(int numeroVidasIniciales, int numeroAdivinar) {
-        super(numeroVidasIniciales, numeroAdivinar);
+    JuegoAdivinaNumeroImpar(int numeroVidasIniciales) {
+        super(numeroVidasIniciales);
     }
 
     @Override

@@ -1,5 +1,9 @@
+import java.util.ArrayList;
+
 public class JuegosReunidos {
-    private Jugable[] juegosReunidos = new Jugable[3];
+
+    private ArrayList<Jugable> juegosReunidos;
+    //private Jugable[] juegosReunidos = new Jugable[3];
     private int vidas = 5;
 
     /*public enum IndiceJuego {
@@ -12,24 +16,25 @@ public class JuegosReunidos {
     }*/
 
     public JuegosReunidos() {
-        // Parámetros del juego
-        int numeroAdivinar = 3;
-        int numeroAdivinarPar = 8;
-        int numeroAdivinarImpar = 5;
 
         // Creamos los juegos
-        Jugable juegoAdivinaNumero = new JuegoAdivinaNumero(this.vidas, numeroAdivinar);
-        Jugable juegoAdivinaNumeroPar = new JuegoAdivinaNumeroPar(this.vidas, numeroAdivinarPar);
-        Jugable juegoAdivinaNumeroImpar = new JuegoAdivinaNumeroImpar(this.vidas, numeroAdivinarImpar);
+        Jugable juegoAdivinaNumero = new JuegoAdivinaNumero(this.vidas);
+        Jugable juegoAdivinaNumeroPar = new JuegoAdivinaNumeroPar(this.vidas);
+        Jugable juegoAdivinaNumeroImpar = new JuegoAdivinaNumeroImpar(this.vidas);
 
         // Guardamos los juegos
-        this.juegosReunidos[0] =  juegoAdivinaNumero;
-        this.juegosReunidos[1] = juegoAdivinaNumeroPar;
-        this.juegosReunidos[2] = juegoAdivinaNumeroImpar;
+        juegosReunidos = new ArrayList<>();
+        juegosReunidos.add(juegoAdivinaNumero);
+        juegosReunidos.add(juegoAdivinaNumeroPar);
+        juegosReunidos.add(juegoAdivinaNumeroImpar);
     }
 
 
-    public Jugable recuperarJuego(int indice){
-        return juegosReunidos[indice-1];
+    public Jugable recuperarJuego(int indice_base_1){
+        return juegosReunidos.get(indice_base_1 - 1);
+    }
+
+    protected void agregar(Jugable juego){
+        juegosReunidos.add(juego);
     }
 }

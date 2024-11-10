@@ -2,14 +2,10 @@ import java.util.Random;
 
 public class JuegoAdivinaNumero extends JuegoConVidas implements Jugable{
     private int _numeroAdivinar;
-    protected Random _random = new Random();
+    protected Random _random = new Random(System.currentTimeMillis());
 
-    public JuegoAdivinaNumero(int numeroVidasIniciales, int numeroAdivinar) {
+    public JuegoAdivinaNumero(int numeroVidasIniciales) {
         super(numeroVidasIniciales);
-
-        if (this.validaNumero(numeroAdivinar)) {
-            this._numeroAdivinar = numeroAdivinar;
-        }
     }
 
     public boolean validaNumero (int numero){
