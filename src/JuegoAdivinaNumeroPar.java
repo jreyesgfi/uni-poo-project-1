@@ -34,4 +34,9 @@ public class JuegoAdivinaNumeroPar extends JuegoAdivinaNumero{
         );
         System.out.println(info);
     }
+
+    @Override
+    protected int numAleatorio(){
+        return 2 + 2 * super._random.nextInt(5);
+    }
 }

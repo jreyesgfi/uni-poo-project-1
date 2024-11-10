@@ -1,5 +1,8 @@
+import java.util.Random;
+
 public class JuegoAdivinaNumero extends JuegoConVidas implements Jugable{
     private int _numeroAdivinar;
+    protected Random _random = new Random();
 
     public JuegoAdivinaNumero(int numeroVidasIniciales, int numeroAdivinar) {
         super(numeroVidasIniciales);
@@ -56,6 +59,17 @@ public class JuegoAdivinaNumero extends JuegoConVidas implements Jugable{
                 getVidasIniciales()
         );
         System.out.println(info);
+    }
+
+    // Número aleatorio
+    protected int numAleatorio(){
+        return 1  + this._random.nextInt(10);
+    }
+
+    @Override
+    public void reiniciaPartida() {
+        this._numeroAdivinar = numAleatorio();
+        super.reiniciaPartida();
     }
 
 }
