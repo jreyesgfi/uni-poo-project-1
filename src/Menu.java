@@ -23,16 +23,16 @@ public class Menu {
         }
     }
 
-    private void mostrarOpciones(){
+    protected void mostrarOpciones(){
         String texto =
                 "¿A que quieres jugar?\n" +
                 "Introduce un 1 si quieres jugar a Adivinar un número.\n" +
                 "Introduce un 2 si quieres jugar a Adivinar un número par.\n" +
-                "Introduce un 3 si quieres jugar a Adivinar un número impar.\n";
+                "Introduce un 3 si quieres jugar a Adivinar un número impar.";
         System.out.println(texto);
     }
 
-    private boolean chequeoOpcion(int opcion){
+    protected boolean chequeoOpcion(int opcion){
         return opcion >=1 && opcion <= 3;
     }
 

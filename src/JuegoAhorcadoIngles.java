@@ -18,7 +18,7 @@ public class JuegoAhorcadoIngles extends JuegoConVidas implements Jugable{
 
     public void muestraInfo() {
         String info = String.format(
-                "En este juego debes adivinar la palabra oculta. "
+                "En este juego debes adivinar la palabra oculta probando letras. Si la letra se encuentra en la palabra al menos una vez, se revelarán todas sus posiciones. Si no está, perderás una vida."
         );
         System.out.println(info);
     }
@@ -41,10 +41,10 @@ public class JuegoAhorcadoIngles extends JuegoConVidas implements Jugable{
     private void mostrarArray(ArrayList<Character> array){
         // Hay métodos más eficientes que no comprendo totalmente, como
         // String output = String.join("", palabra.stream().map(String::valueOf).toArray(String[]::new));
-        array.forEach(c -> System.out.print(c + " "));
+        // array.forEach(c -> System.out.print(c + " "));
         String word = "";
         for (Character c : array){
-            word += c.toString();
+            word += " "+c.toString();
         }
         System.out.println(word);
     }
@@ -74,8 +74,9 @@ public class JuegoAhorcadoIngles extends JuegoConVidas implements Jugable{
 
     @Override
     public void reiniciaPartida(){
-        muestraNombre();
-        muestraInfo();
+        // Ya están incluidos en jugar() de Menu
+        // muestraNombre();
+        // muestraInfo();
 
         resetearPalabra();
 
@@ -84,7 +85,7 @@ public class JuegoAhorcadoIngles extends JuegoConVidas implements Jugable{
 
     private boolean juego_ganado(){
         for (Character c : this.guiones){
-            if (c.equals("_")){
+            if (c.equals('_')){
                 return false;
             }
         }
@@ -98,7 +99,7 @@ public class JuegoAhorcadoIngles extends JuegoConVidas implements Jugable{
         // Si hemos acertado
         if (acierto){
             mostrarArray(this.guiones);
-            if (juego_ganado()) {
+            if (juego_ganado()==true) {
                 System.out.println("Acertaste!!");
                 actualizaRecord();
                 return false;

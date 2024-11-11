@@ -4,7 +4,7 @@ public class JuegosReunidos {
 
     private ArrayList<Jugable> juegosReunidos;
     //private Jugable[] juegosReunidos = new Jugable[3];
-    private int vidas = 5;
+    protected int vidas = 5;
 
     /*public enum IndiceJuego {
         ADIVINA_NUMERO,
