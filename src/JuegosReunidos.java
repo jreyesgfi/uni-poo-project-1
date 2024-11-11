@@ -30,8 +30,8 @@ public class JuegosReunidos {
     }
 
 
-    public Jugable recuperarJuego(int indice_base_1){
-        return juegosReunidos.get(indice_base_1 - 1);
+    public Jugable recuperarJuego(int indiceEnBase1){
+        return juegosReunidos.get(indiceEnBase1 - 1);
     }
 
     protected void agregar(Jugable juego){
