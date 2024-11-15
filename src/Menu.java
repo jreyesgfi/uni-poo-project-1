@@ -17,8 +17,17 @@ public class Menu {
         boolean jugando = true;
 
         // Jugamos
+        String intento = "";
         while (jugando) {
-            String intento = MyInput.readString();
+            boolean intentoValido = false;
+            while (!intentoValido) {
+                System.out.print("\nIntroduzca su intento: ");
+                intento = MyInput.readString();
+                intentoValido = juego.validaFormato(intento);
+                if (!intentoValido) {
+                    System.out.print("\nIntento incorrecto.");
+                }
+            }
             jugando = juego.juega(intento);
         }
     }

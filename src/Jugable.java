@@ -5,4 +5,6 @@ public interface Jugable {
 
     void muestraNombre();
     void muestraInfo();
+
+    boolean validaFormato(String palabra);
 }

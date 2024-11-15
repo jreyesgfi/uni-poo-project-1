@@ -1,3 +1,5 @@
+import Excepciones.JuegoAhorcadoInglesException;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -84,8 +86,17 @@ public class JuegoAhorcadoIngles extends JuegoConVidas implements Jugable{
         // Ya están incluidos en jugar() de Menu
         // muestraNombre();
         // muestraInfo();
-
-        resetearPalabra();
+        boolean palabraAdmisible = false;
+        while(!palabraAdmisible) {
+            resetearPalabra();
+            try{
+                chequeaPalabra(this.palabra_adivinar.toString());
+                palabraAdmisible = true;
+            }
+            catch  (Exception e){
+                System.out.println(e);
+            }
+        }
 
         mostrarArray(this.guiones);
     }
@@ -121,4 +132,20 @@ public class JuegoAhorcadoIngles extends JuegoConVidas implements Jugable{
         // Si no hemos acertado
         return quitaVida();
     }
+
+    public boolean validaFormato(String intento){
+        boolean unSoloCaracter = intento.length() == 1;
+        boolean esMinuscula = Character.isLowerCase(intento.charAt(0));
+        return unSoloCaracter && esMinuscula;
+    }
+
+    private void chequeaPalabra(String palabra) throws Exception{
+        String palabraEnMinuscula = palabra.toLowerCase();
+
+        // Comprobamos si está en minúscula
+        if (!palabra.equals(palabraEnMinuscula)){
+            throw new JuegoAhorcadoInglesException("La palabra debe estar en minúscula");
+        }
+    }
+
 }

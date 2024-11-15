@@ -75,4 +75,14 @@ public class JuegoAdivinaNumero extends JuegoConVidas implements Jugable{
         super.reiniciaPartida();
     }
 
+    public boolean validaFormato(String intento){
+        try{
+            Integer.parseInt(intento);
+            return true;
+        }
+        catch(NumberFormatException e){
+            return false;
+        }
+    }
+
 }
