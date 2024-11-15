@@ -12,6 +12,13 @@ public class JuegoAhorcadoIngles extends JuegoConVidas implements Jugable{
         this.diccionario = diccionarioInicial;
     }
 
+    // Palabra fijada para TEST
+    public JuegoAhorcadoIngles(int numeroVidasIniciales, ArrayList<String> diccionarioInicial, int indexPalabraInicial) {
+        super(numeroVidasIniciales);
+        this.diccionario = diccionarioInicial;
+        this._random = new NumeroDeterminado(indexPalabraInicial);
+    }
+
     public void muestraNombre(){
         System.out.println("Ahorcado en inglés");
     }
@@ -81,6 +88,10 @@ public class JuegoAhorcadoIngles extends JuegoConVidas implements Jugable{
         resetearPalabra();
 
         mostrarArray(this.guiones);
+    }
+
+    public ArrayList<Character> getGuiones() {
+        return this.guiones;
     }
 
     private boolean juego_ganado(){

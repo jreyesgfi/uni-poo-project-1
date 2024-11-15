@@ -67,5 +67,13 @@ abstract class JuegoConVidas {
         }
     }
 
+    public int getRecord() {
+        return this.record;
+    }
+
+    public int getVidasRestantes() {
+        return this.vidas;
+    }
+
     //public abstract boolean juega(String intento);
 }

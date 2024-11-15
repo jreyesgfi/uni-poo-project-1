@@ -2,3 +2,7 @@ wordle
 game
 other
 option
+mode
+extreme
+test
+correct

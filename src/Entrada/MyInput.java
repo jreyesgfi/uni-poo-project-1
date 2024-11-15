@@ -35,7 +35,14 @@ public static String readString() {
      * @return retorna un número entero de precisión simple
      */
 public static int readInt(){
-	return Integer.parseInt(readString()); }
+    while (true){
+        try {
+            return Integer.parseInt(readString());  // Attempt to parse the input as an integer
+        } catch (NumberFormatException e) {
+            System.out.println("Error: No se introdujo un número entero válido. Por favor, inténtelo de nuevo.");
+        }
+    }
+}
 // Lee un dato tipo double  desde el teclado
 
     /**

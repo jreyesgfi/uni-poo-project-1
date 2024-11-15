@@ -7,5 +7,4 @@ public class Main {
         MenuExtendido menu = new MenuExtendido(juegosReunidosExtendidos);
         menu.ejecuta();
     }
-
 }

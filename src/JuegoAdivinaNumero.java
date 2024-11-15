@@ -1,11 +1,18 @@
 import java.util.Random;
 
+
 public class JuegoAdivinaNumero extends JuegoConVidas implements Jugable{
     private int _numeroAdivinar;
     protected Random _random = new Random(System.currentTimeMillis());
 
     public JuegoAdivinaNumero(int numeroVidasIniciales) {
         super(numeroVidasIniciales);
+    }
+
+    // Adivina número determinista para TEST
+    public JuegoAdivinaNumero(int numeroVidasIniciales, int numeroAdivinar) {
+        super(numeroVidasIniciales);
+        this._random = new NumeroDeterminado(numeroAdivinar-1); // -1 para corregir el +1 del numAleatorio()
     }
 
     public boolean validaNumero (int numero){
