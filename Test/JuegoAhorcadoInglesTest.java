@@ -1,3 +1,4 @@
+import App.JuegoAhorcadoIngles;
 import Entrada.MyInput;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -101,16 +102,24 @@ class JuegoAhorcadoInglesTest {
     }
 
     @Test
-    void testPalabraDiccionarioIncorrecto() {
-        ArrayList<String> diccionario2 = new ArrayList<>(Arrays.asList("D", "da", "ma5"));
-        JuegoAhorcadoIngles juego2;
-        juego2 = new JuegoAhorcadoIngles(3, diccionario2); // Index 5 corresponds to "extreme"
-        juego2.reiniciaPartida();
-    }
-
-    @Test
     void testInputMayuscula() { // la comprobación falla porque solo lo hemos contemplado en el método jugar del menú
         assertTrue(juego.juega("D"), "El juego debe manejar entradas incorrectas (Mayúsculas).");
         assertEquals(juego.getVidasRestantes(),3, "No debes perder vidas si el input no era correcto.");
     }
+
+    // Test sin ser determinista para no entrar en bucle
+    @Test
+    void testDiccionarioMayuscula() {
+        ArrayList<String> diccionario2 = new ArrayList<>(Arrays.asList("D", "da"));
+        JuegoAhorcadoIngles juego2 = new JuegoAhorcadoIngles(3, diccionario2); // Index 5 corresponds to "ext
+        juego2.reiniciaPartida();
+    }
+
+    @Test
+    void testDiccionarioNumero() { // No falla, deberíamos detectarlo en la validación de palabra del diccionario
+        ArrayList<String> diccionario2 = new ArrayList<>(Arrays.asList("da5"));
+        JuegoAhorcadoIngles juego2 = new JuegoAhorcadoIngles(3, diccionario2); // Index 5 corresponds to "ext
+        juego2.reiniciaPartida();
+    }
+
 }
